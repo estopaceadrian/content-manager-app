@@ -1,77 +1,106 @@
-import React, { useEffect, useState } from 'react';
-
-function CompA(props) {
-  return (
-    <div>
-      <h1>CompA</h1>
-      <p>Hello Comp A</p>
-      <div>My Prop1: {props.myProp1}</div>
-      <div>My Prop2: {props.myProp2}</div>
-      <div>My Prop3: {props.myProp3}</div>
-      <div>My Prop4: {<props.myProp4 />}</div>
-    </div>
-  );
-}
-function CompB() {
-  return (
-    <div>
-      <h1>CompB</h1>
-    </div>
-  );
-}
-
-class CompC extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 10,
-    };
-  }
-  changeState(incrementor) {
-    this.setState({
-      value: incrementor,
-    });
-  }
-  render() {
-    const { value } = this.state;
-    const { myProp1 } = this.props;
-    return (
-      <div>
-        <h1>CompC</h1>
-        Current Value: <h1>{value}</h1>
-        <button onClick={() => this.changeState(value + 1)}>+</button>
-        <button onClick={() => this.changeState(value - 1)}>-</button>
-        <h2>{myProp1}</h2>
-      </div>
-    );
-  }
-}
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+import Navbar from '../components/Navbar';
+import Newsletter from '../components/Newsletter';
 
 function Home() {
-  const [value, setValue] = useState(10);
-  const [otherValue, setOtherValue] = useState(100);
-
-  useEffect(() => {
-    console.log('useEffect called');
-  }, []);
-
   return (
-    <div>
-      Current Value: <h1>{value}</h1>
-      <button onClick={() => setValue(value + 1)}>+</button>
-      <button onClick={() => setValue(value - 1)}>-</button>
-      <hr />
-      Other Value: <h1>{otherValue}</h1>
-      <button onClick={() => setOtherValue(otherValue + 1)}>+</button>
-      <button onClick={() => setOtherValue(otherValue - 1)}>-</button>
-      {/* <CompA
-        myProp1={value}
-        myProp2="My Custom Value"
-        myProp3={true}
-        myProp4={() => <div>My new JSX</div>}
-      /> */}
-      <CompC myProp1={value} />
-    </div>
+    <>
+      {/* <!-- START NAV --> */}
+      <Navbar />
+      {/* <!-- END NAV --> */}
+
+      {/* <!-- Image --> */}
+      <Hero />
+
+      {/* <!-- newsletter --> */}
+      <Newsletter />
+      {/* 
+  <!-- Articles --> */}
+
+      <section className="hero ">
+        <div className="hero-body">
+          <div className="container">
+            <section className="section">
+              <div className="columns is-variable is-8">
+                <div className="column is-5 is-offset-1 ">
+                  <div className="content is-medium">
+                    <h2 className="subtitle is-5 has-text-grey">
+                      December 23, 2022
+                    </h2>
+                    <h1 className="title has-text-black is-3">
+                      Custom 404 Pages
+                    </h1>
+                    <p className="has-text-dark">
+                      This starter template includes a custom 404 Not Found
+                      error page, located at /source/404.blade.php. To preview
+                      the 404 page, you can visit /404 in your browser.
+                      Depending...
+                    </p>
+                  </div>
+                </div>
+                <div className="column is-5">
+                  <div className="content is-medium">
+                    <h2 className="subtitle is-5 has-text-grey">
+                      December 25, 2022
+                    </h2>
+                    <h1 className="title has-text-black is-3">Fuse Search</h1>
+                    <p className="has-text-dark">
+                      To provide fast, local search of your blog, this starter
+                      template comes with a pre-built Vue.js component that uses
+                      Fuse.js. Fuse.js is a
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="is-divider"></div>
+
+            <section className="section">
+              <div className="columns is-variable is-8">
+                <div className="column is-5 is-offset-1">
+                  <div className="content is-medium">
+                    <h2 className="subtitle is-5 has-text-grey">
+                      December 25, 2022
+                    </h2>
+                    <h1 className="title has-text-black is-3">
+                      Getting Started
+                    </h1>
+                    <p className="has-text-dark">
+                      This is a starter template for creating a beautiful,
+                      customizable blog with minimal effort. You’ll only have to
+                      change a few settings and you’re ready to go. As with all
+                      Jigsaw sites, configuration settings can be found in
+                      config
+                    </p>
+                  </div>
+                </div>
+                <div className="column is-5">
+                  <div className="content is-medium">
+                    <h2 className="subtitle is-5 has-text-grey">
+                      December 25, 2022
+                    </h2>
+                    <h1 className="title has-text-black is-3">
+                      Getting Started
+                    </h1>
+                    <p className="has-text-dark">
+                      This is a starter template for creating a beautiful,
+                      customizable blog with minimal effort. You’ll only have to
+                      change a few settings and you’re ready to go. As with all
+                      Jigsaw sites, configuration settings can be found in
+                      config
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
   );
 }
 
