@@ -3,8 +3,13 @@ import Hero from 'components/Hero';
 import Newsletter from 'components/Newsletter';
 import Article from 'components/Article';
 import Layout from 'components/Layout';
+import { useEffect } from 'react';
 
 function Home({ resources }) {
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/api/resources');
+  // }, []);
+
   return (
     <>
       <Layout>
@@ -18,7 +23,7 @@ function Home({ resources }) {
 }
 
 export async function getServerSideProps() {
-  const resData = await fetch('http://localhost:3000/api/resources');
+  const resData = await fetch('http://localhost:3001/api/resources');
   const data = await resData.json();
 
   return {
