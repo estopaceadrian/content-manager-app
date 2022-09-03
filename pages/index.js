@@ -6,10 +6,6 @@ import Layout from 'components/Layout';
 import { useEffect } from 'react';
 
 function Home({ resources }) {
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/api/resources');
-  // }, []);
-
   return (
     <>
       <Layout>
@@ -32,16 +28,5 @@ export async function getServerSideProps() {
     },
   };
 }
-
-// export async function getStaticProps() {
-//   const resData = await fetch('http://localhost:3000/api/resources');
-//   const data = await resData.json();
-
-//   return {
-//     props: {
-//       resources: data,
-//     },
-//   };
-// }
 
 export default Home;
