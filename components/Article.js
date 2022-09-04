@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Article = ({ resources }) => {
@@ -8,6 +9,9 @@ const Article = ({ resources }) => {
           <h2 className="subtitle is-5 has-text-grey">{data.createdAt}</h2>
           <h1 className="title has-text-black is-3">{data.title}</h1>
           <p className="has-text-dark">{data.description}</p>
+          <Link href={`/resources/${data.id}`}>
+            <a className="button is-link">Details</a>
+          </Link>
         </div>
       </div>
     ));
